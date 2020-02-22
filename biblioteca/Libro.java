@@ -67,4 +67,9 @@ public class Libro {
     public Libro() {
         this(null,null,null,0,0);
     }
+    
+    @Override
+    public String toString(){
+        return titulo + ", " + autor + ", " + ISBN + ", " + precio + ", " + unidades;
+    }
 }

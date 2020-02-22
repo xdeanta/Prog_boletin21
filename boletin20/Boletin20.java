@@ -5,6 +5,9 @@
  */
 package boletin20;
 
+import Interfaces.Menu;
+
+
 /**
  *
  * @author xdeantabelisario
@@ -16,6 +19,10 @@ public class Boletin20 {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        Menu m;
+        int opt;
+        m=new Menu();
+        m.mostrarMenuInit();
+        //m.llamarFuncion(opt);
     }
-    
 }
