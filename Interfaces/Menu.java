@@ -20,10 +20,11 @@ public class Menu {
         System.out.println("Que desea hacer?");
         System.out.println("1. Registrar Libro");
         System.out.println("2. Vender Libro");
-        System.out.println("3. Mostrar Libros");
+        System.out.println("3. Lista ordenada Libros");
         System.out.println("4. Consultar Libro");
         System.out.println("5. Dar Baja Libros no existentes");
-        System.out.println("6. Salir");
+        System.out.println("6. Visualizar Biblioteca");
+        System.out.println("7. Salir");
         opt=sc.nextInt();
         llamarFuncion(opt);
         //return opt;
@@ -58,7 +59,7 @@ public class Menu {
                 break;
                 
                 case 4:
-                    System.out.println("Ingrese el ISBN para buscar:");
+                    System.out.println("Ingrese el titulo para buscar:");
                     ent2=sc.nextLine();
                 try{
                     b.buscarLibro(ent2);
@@ -76,7 +77,13 @@ public class Menu {
                 }
                 mostrarMenuInit();
                 break;
-                
+                case 6:
+                    try{
+                        b.visualizarBiblioteca();
+                    }catch(ExceptionEmpty e){
+                          System.out.println("Error: " + e.toString());  
+                    }
+                break;
                 default:
                     System.exit(0);
                     
@@ -91,13 +98,11 @@ public class Menu {
         tit=sc.next();
         System.out.println("Ingrese el autor del libro:");
         nomb=sc.next();
-        System.out.println("Ingrese el ISBN del libro:");
-        isbn=sc.next();
         System.out.println("Ingrese el precio del libro:");
         pre=sc.nextFloat();
         System.out.println("Ingrese las unidades del libro:");
         unid=sc.nextInt();
-        l=new Libro(tit,nomb,isbn,pre,unid);
+        l=new Libro(tit,nomb,pre,unid);
         return l;
     }
 }

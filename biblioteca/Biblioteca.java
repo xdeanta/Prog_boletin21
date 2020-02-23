@@ -30,7 +30,7 @@ public class Biblioteca {
         }else{
             while(it.hasNext()){
                 aux=it.next();
-                if(aux.getISBN().equals(l.getISBN())){
+                if(aux.getTitulo().equals(l.getTitulo()) && aux.getAutor().equals(l.getAutor())){
                     existe=1;
                     index=libreria.indexOf(aux);
                     unidades=aux.getUnidades();
@@ -75,11 +75,16 @@ public class Biblioteca {
         }else{
             Iterator<Libro> it = libreria.iterator();
             Libro aux;
+            int enc=0;
             while(it.hasNext()){
                 aux=it.next();
-                if(l.equals(aux.getISBN())){
-                    System.out.println(aux.toString());
+                if(l.equals(aux.getTitulo())){
+                    enc=1;
+                    System.out.println(aux.getPrecio());
                 }
+            }
+            if(enc==0){
+                System.out.println("Este libro no se encuentra en la biblioteca");
             }
         }
         
@@ -122,6 +127,40 @@ public class Biblioteca {
                 }
             }
             System.out.println("Lista purgada");
+        }
+    }
+    public void modificarLibro(Libro l, float precio) throws ExceptionEmpty{
+        if(libreria.isEmpty()){
+            throw new ExceptionEmpty("Biblioteca vacía");
+        }else{
+            Iterator<Libro> it = libreria.iterator();
+            Libro aux;
+            int indx;
+            int enc=0;
+            while(it.hasNext()){
+                aux=it.next();
+                if(l.equals(aux.getTitulo())){
+                    enc=1;
+                    aux.setPrecio(precio);
+                }
+            }
+            if(enc==0){
+                System.out.println("Este libro no es encuentra en la biblioteca.");
+            }
+        }
+        
+    }
+    public void visualizarBiblioteca() throws ExceptionEmpty{
+        if(libreria.isEmpty()){
+            throw new ExceptionEmpty("Biblioteca vacia");
+        }else{
+            Libro l;
+            Iterator<Libro> it = libreria.iterator();
+            while(it.hasNext()){
+                l=it.next();
+                System.out.println("Libro:");
+                System.out.println(l.toString());
+            }
         }
     }
 }
