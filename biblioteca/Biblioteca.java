@@ -85,7 +85,7 @@ public class Biblioteca {
         
     }
     
-    /*public void mostrarBiblioteca() throws ExceptionEmpty{
+    public void mostrarBiblioteca() throws ExceptionEmpty{
         if(libreria.isEmpty()){
             throw new ExceptionEmpty("Biblioteca vacia");
         }else{
@@ -98,7 +98,6 @@ public class Biblioteca {
                 l=it.next();
                 aux=l.getTitulo();
                 ordenar.add(aux);
-                //System.out.println(aux);
             }
             ordena=new String[ordenar.size()];
             ordena=ordenar.toArray(ordena);
@@ -107,24 +106,7 @@ public class Biblioteca {
                 System.out.println(ordena[i]);
             }
         }
-    }*/
-    
-    public void mostrarBiblioteca() throws ExceptionEmpty{
-        if(libreria.isEmpty()){
-            throw new ExceptionEmpty("Biblioteca vacia");
-        }else{
-            Iterator<Libro> it = libreria.iterator();
-            Libro aux;
-            if(libreria.isEmpty()){
-                System.out.println("Biblioteca vacia");
-            }else{
-                while(it.hasNext()){
-                    aux=it.next();
-                    System.out.println(aux.toString());
-                }
-            }
-        }
-    }
+    }   
     
     public void purgar() throws ExceptionEmpty{
         if(libreria.isEmpty()){
